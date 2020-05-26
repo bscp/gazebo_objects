@@ -59,7 +59,7 @@ def main():
     args = parse_args()
     object_name = args.object_name
     model_sdf = render_cylinder_model(object_name, args)
-    print(model_sdf)  # TODO : remove line
+
     model_pose = Pose()
     model_pose.position.x = args.position[0]
     model_pose.position.y = args.position[1]
