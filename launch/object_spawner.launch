@@ -1,0 +1,12 @@
+<launch>
+
+  <arg name="object_name"/><!-- is required -->
+  <arg name="object_shape"/><!-- TODO : only cylinder is supported now -->
+  <arg name="object_dimension" default="1 1 1" />
+  <arg name="object_position" default="0 0 0" />
+  <arg name="object_orientation" default="0 0 0 0" />
+
+  <node name="object_spawner" pkg="gazebo_object" type="object_spawner.py"
+        args="--name $(arg object_name) --shape $(arg object_shape) --dimension $(arg object_dimension) --position $(arg object_position) --orientation $(arg object_orientation)"/>
+
+</launch>

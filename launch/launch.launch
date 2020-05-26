@@ -1,0 +1,19 @@
+<launch>
+
+  <arg name="verbose" default="false" />
+
+  <include file="$(find gazebo_object)/launch/object_spawner.launch">
+    <arg name="object_name" value="cylinder1" />
+    <arg name="object_dimension" value="0.2 0.2 0.2" />
+  </include>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false" />
+    <arg name="use_sim_time" value="true" />
+    <arg name="gui" value="true" />
+    <arg name="recording" value="false" />
+    <arg name="debug" value="false" />
+    <arg name="verbose" value="$(arg verbose)" />
+  </include>
+  
+</launch>

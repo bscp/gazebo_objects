@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>gazebo_object</name>
+    <version>1.0.0</version>
+    <description>The gazebo_object package</description>
+
+    <maintainer email="todo@todo.com">TODO</maintainer>
+    <license>TODO</license>
+    <author>TODO</author>
+
+    <depend>gazebo_ros</depend>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <depend>roscpp</depend>
+    <depend>std_msgs</depend>
+    <depend>rospy</depend>
+    <depend>geometry_msgs</depend>
+    <depend>message_generation</depend>
+    <depend>message_runtime</depend>
+
+    <export />
+</package>

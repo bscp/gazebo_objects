@@ -23,7 +23,7 @@ def spawn_cup(name, radius, length, pos_x, pos_y):
     cylinder_length = sys.argv[3]
     model_reference_frame = "world"
 
-    model_sdf = '<?xml version=\'1.0\'?> <sdf version="1.4"> <model name="{{name}}"><link name="link"><collision name="collision"> <geometry> <cylinder> <radius>{{radius}}</radius> <length>{{length}}</length> </cylinder> </geometry> </collision> <visual name="visual"> <geometry> <cylinder> <radius>{{radius}}</radius> <length>{{length}}</length> </cylinder> </geometry> </visual> </link><plugin name="cylinder_plugin" filename="libgazebo_objects_cylinder_plugin.so"><detected>{{detected}}</detected></plugin></model> </sdf>'
+    model_sdf = '<?xml version=\'1.0\'?> <sdf version="1.4"> <model name="{{name}}"><link name="link"><collision name="collision"> <geometry> <cylinder> <radius>{{radius}}</radius> <length>{{length}}</length> </cylinder> </geometry> </collision> <visual name="visual"> <geometry> <cylinder> <radius>{{radius}}</radius> <length>{{length}}</length> </cylinder> </geometry> </visual> </link><plugin name="cylinder_plugin" filename="libgazebo_object_cylinder_plugin.so"><detected>{{detected}}</detected></plugin></model> </sdf>'
     model_sdf = replace(model_sdf, "name", model_name)
     model_sdf = replace(model_sdf, "radius", cylinder_radius)
     model_sdf = replace(model_sdf, "length", cylinder_length)
