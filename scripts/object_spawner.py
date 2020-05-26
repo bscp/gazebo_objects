@@ -7,7 +7,7 @@ import time
 from gazebo_msgs.srv import *
 from geometry_msgs.msg import *
 
-cylinder_model_sdf = '<?xml version=\'1.0\'?><sdf version="1.4"><model name="{object_name}"><link name="link"><inertial><mass>0.1</mass></inertial><collision name="collision"><geometry><cylinder><radius>{dimension_x}</radius><length>{dimension_z}</length></cylinder></geometry></collision><visual name="visual"><geometry><cylinder><radius>{dimension_x}</radius><length>{dimension_z}</length></cylinder> </geometry></visual></link><plugin name="gazebo_plugin" filename="libgazebo_object_gazebo_plugin.so"/></model></sdf>'
+cylinder_model_sdf = '<?xml version=\'1.0\'?><sdf version="1.4"><model name="{object_name}"><link name="link"><inertial><mass>0.1</mass></inertial><collision name="collision"><geometry><box><size>{dimension_x} {dimension_y} {dimension_z}</size></box></geometry></collision><visual name="visual"><geometry><cylinder><radius>{dimension_x}</radius><length>{dimension_z}</length></cylinder> </geometry></visual></link><plugin name="gazebo_plugin" filename="libgazebo_object_gazebo_plugin.so"/></model></sdf>'
 
 
 def parse_args():
@@ -47,7 +47,8 @@ def parse_args():
 def render_cylinder_model(object_name, args):
     return cylinder_model_sdf.format(
         object_name=object_name,
-        dimension_x=args.dimension[1],
+        dimension_x=args.dimension[0],
+        dimension_y=args.dimension[1],
         dimension_z=args.dimension[2])
 
 
@@ -58,7 +59,7 @@ def main():
     args = parse_args()
     object_name = args.object_name
     model_sdf = render_cylinder_model(object_name, args)
-    
+    print(model_sdf)  # TODO : remove line
     model_pose = Pose()
     model_pose.position.x = args.position[0]
     model_pose.position.y = args.position[1]
