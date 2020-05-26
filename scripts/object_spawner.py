@@ -7,7 +7,7 @@ import time
 from gazebo_msgs.srv import *
 from geometry_msgs.msg import *
 
-cylinder_model_sdf = '<?xml version=\'1.0\'?><sdf version="1.4"><model name="{object_name}"><link name="link"><collision name="collision"><geometry><cylinder><radius>{dimension_x}</radius><length>{dimension_z}</length></cylinder></geometry></collision><visual name="visual"><geometry><cylinder><radius>{dimension_x}</radius><length>{dimension_z}</length></cylinder> </geometry></visual></link><plugin name="gazebo_plugin" filename="libgazebo_object_gazebo_plugin.so"/></model></sdf>'
+cylinder_model_sdf = '<?xml version=\'1.0\'?><sdf version="1.4"><model name="{object_name}"><link name="link"><inertial><mass>0.1</mass></inertial><collision name="collision"><geometry><cylinder><radius>{dimension_x}</radius><length>{dimension_z}</length></cylinder></geometry></collision><visual name="visual"><geometry><cylinder><radius>{dimension_x}</radius><length>{dimension_z}</length></cylinder> </geometry></visual></link><plugin name="gazebo_plugin" filename="libgazebo_object_gazebo_plugin.so"/></model></sdf>'
 
 
 def parse_args():
