@@ -20,28 +20,28 @@ namespace gazebo_object {
     void GazeboPlugin::Load(ModelPtr model_ptr, sdf::ElementPtr /*sdf_ptr*/)
     {
         this->model_ptr = model_ptr;
-        register_update_callback();
-        register_reset_callback();
-        register_object_state_publisher();
+        connect_update_callback();
+        connect_reset_callback();
+        initialize_object_state_publisher();
         this->object_state_msg.name = model_ptr->GetName();
     }
 
 
-    void GazeboPlugin::register_update_callback()
+    void GazeboPlugin::connect_update_callback()
     {
         this->update_connection = gazebo::event::Events::ConnectWorldUpdateBegin(
             std::bind(&GazeboPlugin::on_update, this));
     }
 
 
-    void GazeboPlugin::register_reset_callback()
+    void GazeboPlugin::connect_reset_callback()
     {
         this->reset_connection = gazebo::event::Events::ConnectWorldReset(
             std::bind(&GazeboPlugin::on_reset, this));
     }
 
 
-    void GazeboPlugin::register_object_state_publisher()
+    void GazeboPlugin::initialize_object_state_publisher()
     {
         node_handle_ptr = boost::make_shared<ros::NodeHandle>("~");
         object_state_publisher = node_handle_ptr->advertise<ObjectStateMsg>(

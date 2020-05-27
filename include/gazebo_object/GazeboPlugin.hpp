@@ -35,13 +35,13 @@ namespace gazebo_object
     private:
 
         /// connect on_update method to the Gazebo update event
-        void register_update_callback();
+        void connect_update_callback();
         
         /// connect on_reset method to the Gazebo reset event
-        void register_reset_callback();
+        void connect_reset_callback();
 
-        /// registers the object state publisher at roscore 
-        void register_object_state_publisher();
+        /// initializes the object state publisher 
+        void initialize_object_state_publisher();
 
         /// executed when the simulation gets updated
         void on_update();
